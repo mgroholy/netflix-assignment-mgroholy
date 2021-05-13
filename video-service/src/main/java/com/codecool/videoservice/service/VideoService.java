@@ -46,4 +46,8 @@ public class VideoService {
         recommendationServiceCaller.updateRecommendations(video.getId(), video.getRecommendations());
 
     }
+
+    public void addRecommendation(RecommendationDTO recommendationDTO) {
+        recommendationServiceCaller.addRecommendation(recommendationDTO);
+    }
 }
