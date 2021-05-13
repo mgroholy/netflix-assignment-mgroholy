@@ -1,5 +1,6 @@
 package com.codecool.videoservice.controller;
 
+import com.codecool.videoservice.model.RecommendationDTO;
 import com.codecool.videoservice.model.Video;
 import com.codecool.videoservice.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,11 @@ public class VideoController {
         videoService.updateVideo(video);
         return video;
 
+    }
+    @PostMapping(path="/video/{id}/recommendation")
+    public void addRecommendation(@PathVariable(name="id") long id, @RequestBody RecommendationDTO recommendationDTO){
+        recommendationDTO.setVideoId(id);
+        videoService.addRecommendation(recommendationDTO);
     }
 
 }

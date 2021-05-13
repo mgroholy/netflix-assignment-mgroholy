@@ -29,4 +29,8 @@ public class RecommendationService {
             recommendationRepository.save(recommendationToUpdate);
         }
     }
+
+    public void addRecommendation(Recommendation recommendation) {
+        recommendationRepository.save(recommendation);
+    }
 }

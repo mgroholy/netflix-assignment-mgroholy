@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.print.DocFlavor;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,5 +31,9 @@ public class RecommendationServiceCaller {
 
     public List<RecommendationDTO> updateRecommendations(long videoId, List<RecommendationDTO> recommendations){
         return Arrays.asList(restTemplate.postForEntity(baseUrl + "/" + videoId, recommendations, RecommendationDTO[].class).getBody());
+    }
+
+    public void addRecommendation(RecommendationDTO recommendationDTO) {
+        RecommendationDTO recommendationDTO1 = restTemplate.postForEntity(baseUrl +"/"+recommendationDTO.getVideoId()+"/new", recommendationDTO, RecommendationDTO.class).getBody();
     }
 }
