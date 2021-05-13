@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class RecommendationDTO {
+    private long id;
     private int rating;
     private String comment;
+    private long videoId;
 }
