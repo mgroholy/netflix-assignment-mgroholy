@@ -17,8 +17,9 @@ public class VideoService {
     private RecommendationServiceCaller recommendationServiceCaller;
 
     @Autowired
-    public VideoService(VideoRepository videoRepository) {
+    public VideoService(VideoRepository videoRepository, RecommendationServiceCaller recommendationServiceCaller) {
         this.videoRepository = videoRepository;
+        this.recommendationServiceCaller = recommendationServiceCaller;
     }
 
     public List<Video> findAll(){
@@ -35,5 +36,14 @@ public class VideoService {
         } else {
             throw new NoSuchElementException("No video found with id " +videoId);
         }
+    }
+
+    public void updateVideo(Video video) {
+        Video videoToUpdate = videoRepository.getOne(video.getId());
+        videoToUpdate.setName(video.getName());
+        videoToUpdate.setUrl(video.getUrl());
+        videoToUpdate.setRecommendations(video.getRecommendations());
+        recommendationServiceCaller.updateRecommendations(video.getId(), video.getRecommendations());
+
     }
 }
