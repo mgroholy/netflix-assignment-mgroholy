@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
+import org.springframework.web.client.RestTemplate;
 
 import java.net.URL;
 import java.util.List;
@@ -35,6 +37,12 @@ public class VideoServiceApplication {
 			Video video3 = Video.builder().name("Never Get Naked in Your Shower").url(new URL("https://www.youtube.com/watch?v=K3eb0Kick6w")).build();
 			videoRepository.saveAll(List.of(video1, video2, video3));
 		};
+	}
+
+	@Bean
+	@LoadBalanced
+	public RestTemplate restTemplate(){
+		return new RestTemplate();
 	}
 
 }
