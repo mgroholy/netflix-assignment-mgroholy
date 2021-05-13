@@ -32,9 +32,9 @@ public class VideoServiceApplication {
 	@Profile("production")
 	public CommandLineRunner init(){
 		return args -> {
-			Video video1 = Video.builder().name("bitch lasagna").url(new URL("https://www.youtube.com/watch?v=6Dh-RL__uN4")).build();
-			Video video2 = Video.builder().name("Mine All Day").url(new URL("https://www.youtube.com/watch?v=UAlIq7BKNxg")).build();
-			Video video3 = Video.builder().name("Never Get Naked in Your Shower").url(new URL("https://www.youtube.com/watch?v=K3eb0Kick6w")).build();
+			Video video1 = Video.builder().id(1).name("bitch lasagna").url(new URL("https://www.youtube.com/watch?v=6Dh-RL__uN4")).build();
+			Video video2 = Video.builder().id(2).name("Mine All Day").url(new URL("https://www.youtube.com/watch?v=UAlIq7BKNxg")).build();
+			Video video3 = Video.builder().id(3).name("Never Get Naked in Your Shower").url(new URL("https://www.youtube.com/watch?v=K3eb0Kick6w")).build();
 			videoRepository.saveAll(List.of(video1, video2, video3));
 		};
 	}
