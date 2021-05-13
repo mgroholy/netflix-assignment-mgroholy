@@ -27,4 +27,8 @@ public class RecommendationServiceCaller {
     public List<RecommendationDTO> getRecommendationsForVideo(long videoId){
         return Arrays.asList(restTemplate.getForEntity(baseUrl + "/" + videoId, RecommendationDTO[].class).getBody());
     }
+
+    public List<RecommendationDTO> updateRecommendations(long videoId, List<RecommendationDTO> recommendations){
+        return Arrays.asList(restTemplate.postForEntity(baseUrl + "/" + videoId, recommendations, RecommendationDTO[].class).getBody());
+    }
 }
