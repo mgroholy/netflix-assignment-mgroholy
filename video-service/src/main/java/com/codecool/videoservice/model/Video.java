@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.net.URL;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -24,5 +26,8 @@ public class Video {
     private String name;
 
     private URL url;
+
+    @Transient
+    private List<RecommendationDTO> recommendations;
 
 }
