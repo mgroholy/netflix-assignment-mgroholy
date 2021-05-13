@@ -27,7 +27,7 @@ public class RecommendationController {
         recommendationService.updateRecommendations(recommendations);
     }
 
-    @PostMapping(path = "/recommendations/{videoId}/new")
+    @PostMapping(path = "/recommendation/{videoId}/new")
     public void addRecommendation(@PathVariable(name="videoId") long videoId, @RequestBody Recommendation recommendation){
         recommendation.setVideoId(videoId);
         recommendationService.addRecommendation(recommendation);
