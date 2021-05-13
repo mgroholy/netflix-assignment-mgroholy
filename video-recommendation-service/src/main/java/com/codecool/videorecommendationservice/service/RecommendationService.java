@@ -20,4 +20,13 @@ public class RecommendationService {
     public List<Recommendation> getRecommendationsForVideo(long videoId){
         return recommendationRepository.findAllByVideoId(videoId);
     }
+
+    public void updateRecommendations(List<Recommendation> recommendations) {
+        for(Recommendation recommendation: recommendations){
+            Recommendation recommendationToUpdate = recommendationRepository.getOne(recommendation.getId());
+            recommendationToUpdate.setRating(recommendation.getRating());
+            recommendationToUpdate.setComment(recommendation.getComment());
+            recommendationRepository.save(recommendationToUpdate);
+        }
+    }
 }
