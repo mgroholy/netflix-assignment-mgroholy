@@ -3,9 +3,7 @@ package com.codecool.videorecommendationservice.controller;
 import com.codecool.videorecommendationservice.model.Recommendation;
 import com.codecool.videorecommendationservice.service.RecommendationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +20,11 @@ public class RecommendationController {
     @GetMapping(path="/recommendation/{videoId}")
     public List<Recommendation> getRecommendations(@PathVariable(name = "videoId") long videoId){
         return recommendationService.getRecommendationsForVideo(videoId);
+    }
+
+    @PostMapping(path="/recommendation/{videoId}")
+    public void updateRecommendations(@PathVariable(name = "videoId")long videoId, @RequestBody List<Recommendation> recommendations){
+        recommendationService.updateRecommendations(recommendations);
     }
 
 }
