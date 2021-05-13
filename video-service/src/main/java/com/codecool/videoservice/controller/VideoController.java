@@ -25,7 +25,7 @@ public class VideoController {
     }
 
     @GetMapping(path="/video/{id}")
-    public Video getVideo(@PathVariable(name = "id") int id){
+    public Video getVideo(@PathVariable(name = "id") long id){
         return videoService.getVideoWithRecommendations(id);
     }
 
