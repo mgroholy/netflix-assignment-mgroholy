@@ -6,9 +6,9 @@ import {
   VideoListItem,
 } from "./VideoListElements";
 
-const VideoList = () => {
-  const VIDEOS_API_URL = "http://localhost:8762/videos";
+export const VIDEOS_API_URL = "http://localhost:8762/videos";
 
+const VideoList = () => {
   const [videos, setVideos] = useState([]);
 
   const fetchVideos = async () => {

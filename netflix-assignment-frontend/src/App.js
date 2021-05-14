@@ -1,6 +1,6 @@
-import { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/header/Header";
+import Header from "./components/Header/Header";
+import VideoDetails from "./components/VideoDetails/VideoDetails";
 import VideoList from "./components/VideoList/VideoList";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
         <Header />
         <Switch>
           <Route path="/" exact component={VideoList} />
-          <Route path="/video/:id" component={Fragment} />
+          <Route path="/videos/:id" exact component={VideoDetails} />
         </Switch>
       </Router>
     </div>
