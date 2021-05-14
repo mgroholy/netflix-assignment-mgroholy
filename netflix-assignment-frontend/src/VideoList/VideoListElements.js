@@ -20,7 +20,7 @@ export const VideoListCard = styled.div`
 `;
 
 export const VideoListItem = styled(Link)`
-  width: 80%;
+  width: 50%;
   height: 50px;
   background-color: #303030;
   text-decoration: none;
@@ -30,5 +30,7 @@ export const VideoListItem = styled(Link)`
   border-radius: 3px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-left: 50px;
+  padding-right: 50px;
 `;
