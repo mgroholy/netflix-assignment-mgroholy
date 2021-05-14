@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/header/Header";
+import Header from "./components/Header/Header";
 import VideoList from "./components/VideoList/VideoList";
 
 function App() {
