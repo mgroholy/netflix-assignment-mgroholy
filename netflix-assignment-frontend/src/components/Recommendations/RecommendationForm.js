@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { VIDEOS_API_URL } from "../VideoList/VideoList";
+import {
+  RecommendationButton,
+  RecommendationFormContainer,
+} from "./RecommendationElements";
 
 const RecommendationForm = ({ videoId, setHasNewRecommendation }) => {
   const [openForm, setOpenForm] = useState(false);
@@ -20,10 +24,10 @@ const RecommendationForm = ({ videoId, setHasNewRecommendation }) => {
   };
 
   return (
-    <div>
-      <button onClick={() => toggleForm()}>
+    <RecommendationFormContainer>
+      <RecommendationButton onClick={() => toggleForm()}>
         {openForm ? "Close" : "Add recommendation"}
-      </button>
+      </RecommendationButton>
       {openForm && (
         <>
           <input
@@ -41,7 +45,7 @@ const RecommendationForm = ({ videoId, setHasNewRecommendation }) => {
             <option>4</option>
             <option>5</option>
           </select>
-          <button
+          <RecommendationButton
             onClick={() => {
               setComment("");
               setRating(1);
@@ -51,10 +55,10 @@ const RecommendationForm = ({ videoId, setHasNewRecommendation }) => {
             }}
           >
             Save
-          </button>
+          </RecommendationButton>
         </>
       )}
-    </div>
+    </RecommendationFormContainer>
   );
 };
 

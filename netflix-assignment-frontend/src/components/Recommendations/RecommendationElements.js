@@ -23,3 +23,27 @@ export const RecommendationsCard = styled.div`
   border-radius: 3px;
   color: white;
 `;
+
+export const RecommendationFormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const RecommendationButton = styled.div`
+  width: 300px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  border: 3px solid #303030;
+  border-radius: 3px;
+  cursor: pointer;
+  &:hover {
+    background-color: #303030;
+    transition: 0.2s all ease-in;
+  }
+`;
