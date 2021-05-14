@@ -10,7 +10,6 @@ const RecommendationList = ({ recommendations }) => {
   const getStars = (rating) => {
     let stars = [];
     for (let i = 0; i < rating; i++) {
-      console.log("star");
       stars.push(<FaStar />);
     }
     return stars;
