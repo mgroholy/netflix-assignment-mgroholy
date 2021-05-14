@@ -14,9 +14,6 @@ const VideoDetails = () => {
   const [videoId, setVideoId] = useState("");
   const [hasNewRecommendation, setHasNewRecommendation] = useState(false);
 
-  const toggleHasNewRecommendation = () =>
-    setHasNewRecommendation(!hasNewRecommendation);
-
   console.log(id);
 
   const fetchVideo = async () => {
