@@ -12,6 +12,10 @@ const VideoDetails = () => {
 
   const [video, setVideo] = useState({});
   const [videoId, setVideoId] = useState("");
+  const [hasNewRecommendation, setHasNewRecommendation] = useState(false);
+
+  const toggleHasNewRecommendation = () =>
+    setHasNewRecommendation(!hasNewRecommendation);
 
   console.log(id);
 
@@ -30,7 +34,8 @@ const VideoDetails = () => {
 
   useEffect(() => {
     fetchVideo();
-  }, []);
+    setHasNewRecommendation(false);
+  }, [hasNewRecommendation]);
 
   return (
     <VideoListContainer>
@@ -38,7 +43,11 @@ const VideoDetails = () => {
         <VideoTitle>{video.name}</VideoTitle>
         <YouTube videoId={videoId} />
         {console.log(video)}
-        <RecommendationList recommendations={video.recommendations} />
+        <RecommendationList
+          setHasNewRecommendation={setHasNewRecommendation}
+          recommendations={video.recommendations}
+          videoId={video.id}
+        />
       </VideoDetailCard>
     </VideoListContainer>
   );
