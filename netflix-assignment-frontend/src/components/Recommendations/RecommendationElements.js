@@ -42,8 +42,21 @@ export const RecommendationButton = styled.div`
   border: 3px solid #303030;
   border-radius: 3px;
   cursor: pointer;
+  margin: 10px;
   &:hover {
     background-color: #303030;
     transition: 0.2s all ease-in;
   }
+`;
+
+export const RecommendationInput = styled.input`
+  width: 300px;
+  height: 30px;
+  margin: 10px;
+`;
+
+export const RecommendationDropdown = styled.select`
+  height: 30px;
+  width: 50px;
+  margin: 10px;
 `;

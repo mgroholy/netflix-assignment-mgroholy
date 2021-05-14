@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import { VIDEOS_API_URL } from "../VideoList/VideoList";
 import {
   RecommendationButton,
+  RecommendationDropdown,
   RecommendationFormContainer,
+  RecommendationInput,
 } from "./RecommendationElements";
 
 const RecommendationForm = ({ videoId, setHasNewRecommendation }) => {
@@ -30,12 +32,12 @@ const RecommendationForm = ({ videoId, setHasNewRecommendation }) => {
       </RecommendationButton>
       {openForm && (
         <>
-          <input
+          <RecommendationInput
             type="text"
             onChange={(event) => setComment(event.target.value)}
             value={comment}
-          ></input>
-          <select
+          ></RecommendationInput>
+          <RecommendationDropdown
             onChange={(event) => setRating(event.target.value)}
             value={rating}
           >
@@ -44,7 +46,7 @@ const RecommendationForm = ({ videoId, setHasNewRecommendation }) => {
             <option>3</option>
             <option>4</option>
             <option>5</option>
-          </select>
+          </RecommendationDropdown>
           <RecommendationButton
             onClick={() => {
               setComment("");
