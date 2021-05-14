@@ -11,3 +11,8 @@ export const VideoDetailCard = styled.div`
   border-radius: 3px;
   padding: 20px;
 `;
+
+export const VideoTitle = styled.h1`
+  color: white;
+  font-size: 36px;
+`;

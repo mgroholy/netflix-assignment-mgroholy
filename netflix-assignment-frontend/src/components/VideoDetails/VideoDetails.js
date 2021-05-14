@@ -2,9 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { VideoListContainer } from "../VideoList/VideoListElements";
-import { VideoDetailCard } from "./VideoDetailElements";
+import { VideoDetailCard, VideoTitle } from "./VideoDetailElements";
 import { VIDEOS_API_URL } from "../VideoList/VideoList";
 import YouTube from "react-youtube";
+import RecommendationList from "../Recommendations/RecommendationList";
 
 const VideoDetails = () => {
   const { id } = useParams();
@@ -34,8 +35,10 @@ const VideoDetails = () => {
   return (
     <VideoListContainer>
       <VideoDetailCard>
-        <p style={{ color: "white" }}>{video.name}</p>
+        <VideoTitle>{video.name}</VideoTitle>
         <YouTube videoId={videoId} />
+        {console.log(video)}
+        <RecommendationList recommendations={video.recommendations} />
       </VideoDetailCard>
     </VideoListContainer>
   );
