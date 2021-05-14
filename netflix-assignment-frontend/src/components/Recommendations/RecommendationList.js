@@ -5,12 +5,16 @@ import {
   RecommendationsTitle,
 } from "./RecommendationElements";
 import { FaStar } from "react-icons/fa";
+import RecommendationForm from "./RecommendationForm";
 
-const RecommendationList = ({ recommendations }) => {
+const RecommendationList = ({
+  recommendations,
+  videoId,
+  setHasNewRecommendation,
+}) => {
   const getStars = (rating) => {
     let stars = [];
     for (let i = 0; i < rating; i++) {
-      console.log("star");
       stars.push(<FaStar />);
     }
     return stars;
@@ -27,6 +31,10 @@ const RecommendationList = ({ recommendations }) => {
               <p>{getStars(recommendation.rating)}</p>
             </RecommendationsCard>
           ))}
+        <RecommendationForm
+          videoId={videoId}
+          setHasNewRecommendation={setHasNewRecommendation}
+        />
       </RecommendationContainer>
     </RecommendationContainer>
   );
