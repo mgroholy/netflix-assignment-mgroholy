@@ -29,7 +29,7 @@ const VideoList = () => {
       <VideoListContainer>
         <VideoListCard>
           {videos.map((video) => (
-            <VideoListItem to={`/videos/${video.id}`}>
+            <VideoListItem key={video.id} to={`/videos/${video.id}`}>
               <p>{video.id}</p>
               <p>{video.name}</p>
             </VideoListItem>
