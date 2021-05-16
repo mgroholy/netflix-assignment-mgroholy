@@ -26,7 +26,7 @@ const RecommendationList = ({
       <RecommendationContainer>
         {recommendations &&
           recommendations.map((recommendation) => (
-            <RecommendationsCard>
+            <RecommendationsCard key={recommendation.id}>
               <p>{recommendation.comment}</p>
               <p>{getStars(recommendation.rating)}</p>
             </RecommendationsCard>
